@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "waves.py", line 26, in <module>
+    tau.to_netcdf('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc')
+  File "/glade/u/home/mcamron/miniconda3/envs/gwdst/lib/python3.6/site-packages/xarray/core/dataset.py", line 977, in to_netcdf
+    unlimited_dims=unlimited_dims)
+  File "/glade/u/home/mcamron/miniconda3/envs/gwdst/lib/python3.6/site-packages/xarray/backends/api.py", line 552, in to_netcdf
+    _validate_dataset_names(dataset)
+  File "/glade/u/home/mcamron/miniconda3/envs/gwdst/lib/python3.6/site-packages/xarray/backends/api.py", line 90, in _validate_dataset_names
+    check_name(k)
+  File "/glade/u/home/mcamron/miniconda3/envs/gwdst/lib/python3.6/site-packages/xarray/backends/api.py", line 86, in check_name
+    raise TypeError('DataArray.name or Dataset key must be either a '
+TypeError: DataArray.name or Dataset key must be either a string or None for serialization to netCDF files
