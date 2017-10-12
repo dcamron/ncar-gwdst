@@ -27,16 +27,11 @@ tau.to_netcdf('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc')
 
 tau = xr.open_dataset('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc', chunks={'time': 31})
 
-mx = 0
-for (i, x) in enumerate(tau.data_vars):
-    if tau[i].max().values > mx:
-        mx = tau[i].max().values
-
 bins = np.arange(0, 200, 1)
 hist = 0
 
 for (i, x) in enumerate(tau.data_vars):
-    (h, edges) = np.histogram(tau[i], bins=bins)
+    (h, edges) = np.histogram(tau[str(i)], bins=bins)
     hist += h
 
 f, ax = plt.subplots(figsize=(7, 6))
