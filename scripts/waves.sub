@@ -1,15 +1,15 @@
 #!/bin/bash
 #PBS -N waves_py
 #PBS -A NCGD0028
-#PBS -l walltime=06:00:00
+#PBS -l walltime=08:00:00
 #PBS -q economy
 #PBS -j oe
 #PBS -m abe
 #PBS -M mew2dude@gmail.com
-#PBS -l select=1:mem=109GB
+#PBS -l select=2:mem=109GB
 
 mkdir -p /glade/scratch/mcamron/temp
 export TMPDIR=/glade/scratch/mcamron/temp
 
 source activate gwdst
-python waves.py
+python ~/python/gwdst/scripts/waves.py

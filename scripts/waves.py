@@ -1,5 +1,6 @@
 # coding: utf-8
 
+from glob import glob
 import numpy as np
 import pandas as pd
 import xarray as xr
@@ -13,7 +14,7 @@ sns.set(context='talk', palette='colorblind', style='ticks')
 
 #####
 
-ds = xr.open_mfdataset('/glade/scratch/mcamron/archive/f.c54120.FWscHIST.f09_f09.gwdst/atm/hist/f.c54120.FWscHIST.f09_f09.gwdst.cam.h1.2002-07-*.nc')
+ds = xr.open_mfdataset(sorted(glob('/glade/scratch/mcamron/archive/f.c54120.FWscHIST.f09_f09.gwdst/atm/hist/f.c54120.FWscHIST.f09_f09.gwdst.cam.h1.2002-0[6,7]*')))
 
 ds = ds.sel(lat=slice(-20,20))
 
@@ -25,7 +26,7 @@ tau = xr.Dataset({str(i): xu.sqrt(xu.square(gwx[x]) + xu.square(gwy[y])) for (i,
 
 tau.to_netcdf('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc')
 
-tau = xr.open_dataset('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc', chunks={'time': 31})
+tau = xr.open_dataset('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc', chunks={'time': 61})
 
 bins = np.arange(0, 200, 1)
 hist = 0
