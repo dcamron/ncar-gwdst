@@ -13,10 +13,10 @@ import xarray as xr
 #sns.set(context='talk', palette='colorblind', style='ticks')
 
 #####
-tau = xr.open_dataset('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc') #, chunks={'time': 61})
+tau = xr.open_dataset('/glade/scratch/mcamron/output/gwdst/tau_magnitude.nc', chunks={'time': 61})
 
 tau_f = xr.concat([tau[i] for i in tau.data_vars], pd.Index(np.arange(1,65), name='wave'))
-tau_f.to_netcdf('/glade/scratch/mcamron/output/gwdst/tau_magnitude_f.nc')
+tau_f.to_dataset().to_netcdf('/glade/scratch/mcamron/output/gwdst/tau_magnitude_f.nc')
 
 '''
 f, ax = plt.subplots(figsize=(7, 6))
