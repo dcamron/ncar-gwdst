@@ -6,7 +6,7 @@
 #PBS -j oe
 #PBS -m abe
 #PBS -M mew2dude@gmail.com
-#PBS -l select=2:mem=109GB
+#PBS -l select=3:mem=109GB
 
 mkdir -p /glade/scratch/mcamron/temp
 export TMPDIR=/glade/scratch/mcamron/temp
